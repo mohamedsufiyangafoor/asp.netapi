@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace my_books.Data.Models
 {
@@ -15,7 +16,18 @@ namespace my_books.Data.Models
         public string CoverUrl { get; set; }
         public DateTime? DateAdded { get; set; }
 
+        // Navigation Properties
+        
+        // One To Many Relationships
+        // PublisherId is the foreign key for book Model
+        // PublisherId = Id in the Publisher Model and works as primary key
+        public int PublisherId { get; set; }
+        public Publisher Publisher { get; set; }
 
 
+        // Navigation Properties
+        // MANY TO MANY RELATIONSHIPS
+        // Because it is M2M we need a intermediate(join) model 
+        public List<Book_Author> Book_Authors { get; set; }
     }
 }
